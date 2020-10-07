@@ -112,8 +112,8 @@ io.on("connection", (socket) => {
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-const index = require("./routes/index");
-app.use("/", index);
+// const index = require("./routes/index");
+// app.use("/", index);
 
 const comments = require("./routes/comments");
 app.use("/comments", comments);
