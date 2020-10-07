@@ -5,7 +5,7 @@ const Comment = require("../models/Comments");
 
 router.post("/", (req, res) => {
 
-  const { comment, receiver, receiverUsername, senderUsername } = req.body;
+  const { comment, receiver, receiverUsername, senderUsername, roomGenerated } = req.body;
 
 
   Comment.create({
@@ -13,7 +13,7 @@ router.post("/", (req, res) => {
     sender: req.user._id,
     receiver,
     receiverUsername,
-
+    roomGenerated,
     senderUsername
 
   })

@@ -5,7 +5,8 @@ const commentsSchema = new Schema({
   receiver: String,
   sender: { type: Schema.Types.ObjectId, ref: "User" },
   receiverUsername: String,
-  senderUsername: String
+  senderUsername: String,
+  roomGenerated: Boolean
 });
 
 const Comments = mongoose.model('Comments', commentsSchema);

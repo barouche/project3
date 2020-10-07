@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 // import EditProject from "./EditProject";
 import Comment from "./Comment";
 import CreateRoom from "./CreateRoom";
-import { Route, Redirect, Link } from "react-router-dom";
+// import { Route, Redirect, Link } from "react-router-dom";
 
 export default class ProjectDetails extends Component {
   state = {
@@ -22,15 +22,19 @@ export default class ProjectDetails extends Component {
       .get(`/api/projects/${this.props.match.params.id}`)
       .then((response) => {
         const userComments = response.data.comments.filter((comment) => {
-          console.log("comment in userComments ", comment);
-          console.log("this.props.user._id", this.props.user._id);
+          console.log("this.props", this.props);
+          console.log("comment in userComments pkdetaisl", comment);
           console.log("comment.receiver: ", comment.receiver);
           console.log("comment.sender: ", comment.sender);
           console.log(this.props.user._id === comment.receiver);
           console.log(comment.sender === this.props.user._id);
           return (
-            (this.props.user._id === comment.receiver ||
-              comment.sender === this.props.user._id) &&
+            (
+              this.props.user.username === comment.receiverUsername ||
+              this.props.user.username === comment.senderUsername
+              // this.props.user._id === comment.receiver ||
+              // comment.sender === this.props.user._id
+              ) &&
             this.props.match.params.id === comment.receiver &&
             comment
           );
