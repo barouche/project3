@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar as Nav } from "react-bootstrap";
+//import { Navbar as Nav } from "react-bootstrap";
 import { logout } from "../services/auth";
+import "./Navbar.css";
+import Logo from "./logo.png";
 
 const handleLogout = (props) => {
   logout().then(() => {
@@ -11,33 +13,32 @@ const handleLogout = (props) => {
 
 export default function Navbar(props) {
   return (
-    <Nav className="nav justify-content-end" bg="primary">
-      {props.user && <Nav.Brand>Welcome {props.user.username}</Nav.Brand>}
-      {/* <Nav.Brand>
-        <Link to="/">Home</Link>
-      </Nav.Brand> */}
-
+    <nav className="nav">
+      <img src={Logo}></img>
+      {props.user && <div>Welcome {props.user.username}</div>}
       {props.user ? (
         <>
-          <Nav.Brand>
+          <div>
             <Link to="/home">Learners</Link>
-          </Nav.Brand>
-          <Nav.Brand>
+          </div>
+          <div>
             <Link to="/" onClick={() => handleLogout(props)}>
               Logout
             </Link>
-          </Nav.Brand>
+          </div>
         </>
       ) : (
         <>
-          <Nav.Brand>
-            <Link to="/signup">Signup</Link>
-          </Nav.Brand>
-          <Nav.Brand>
-            <Link to="/login">Login</Link>
-          </Nav.Brand>
+          <div className="LoginSignup">
+            <div>
+              <Link to="/signup">Signup</Link>
+            </div>
+            <div>
+              <Link to="/login">Login</Link>
+            </div>
+          </div>
         </>
       )}
-    </Nav>
+    </nav>
   );
 }

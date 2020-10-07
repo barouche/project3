@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
+import "./LearnersList.css";
 
 // import LearnersList from "./LearnersList";
 // import AddProject from "./AddProject";
@@ -29,8 +30,7 @@ export default class Projects extends Component {
           learners: response.data,
         });
         this.state.learners.forEach((learner) => {
-          learner.languagesSpoken.forEach((language) => {
-          });
+          learner.languagesSpoken.forEach((language) => {});
         });
       })
       .catch((error) => {
@@ -39,7 +39,6 @@ export default class Projects extends Component {
   };
 
   render() {
-
     const users = this.state.learners
       .filter((data) => {
         if (this.state.search == null) return data;
@@ -59,7 +58,7 @@ export default class Projects extends Component {
       })
       .map((user) => {
         return (
-          <div>
+          <div className="UserInformation">
             <a href={`/users/${user._id}`}>{user.username}</a> <br></br>
             <b>{user.description}</b>
             <p>I speak </p>
