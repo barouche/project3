@@ -140,8 +140,8 @@ const Room = (props) => {
         },
         {
           urls: "turn:numb.viagenie.ca",
-          credential: "muazkh",
-          username: "webrtc@live.com",
+          credential: "ironhack-082020",
+          username: " idanpap@gmail.com",
         },
       ],
     });
