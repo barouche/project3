@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Link } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -10,7 +10,6 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import CreateRoom from "./components/CreateRoom";
 import Room from "./components/Room";
-import { Button } from "react-bootstrap";
 import ProjectDetails from "./components/ProjectDetails";
 
 class App extends Component {
@@ -90,24 +89,26 @@ class App extends Component {
             } else
               return (
                 <div className="not-signed-up">
-                  <h1>Welcome to the DaNaKe</h1>
+                  <h1>Welcome to the Barouche</h1>
                   <p>
-                    Here at DaNaKe, we care about learning languages. A passion
-                    for education, coupled with the new normal imposed by COVID,
-                    which means we can't travel as much as normal, motivated us
-                    to make our groundbreaking language learning platform
-                    available to the public. Connect with normal people from all
-                    over the world and learn the language of your choosing,
-                    whilst simultaneously sharing your own culture.
+                    Here at Barouche, we care about learning languages. A
+                    passion for education, coupled with the new normal imposed
+                    by COVID, which means we can't travel as much as normal,
+                    motivated us to make our groundbreaking language learning
+                    platform available to the public. Connect with normal people
+                    from all over the world and learn the language of your
+                    choosing, whilst simultaneously sharing your own culture.
                   </p>
                   <p>
-                    <em>We are DaNaKe, we are community</em>
+                    <em>We are Barouche, we are community</em>
                   </p>
-                  <a href="/signup">
+                  {/* <a href="/signup">
                     <Button variant="primary" size="lg">
                       Join us now
                     </Button>
-                  </a>
+                  </a> */}
+                  <Login setUser={this.setUser} {...props} />
+                  <Link to={`/signup`}>Sign Up here</Link>
                 </div>
               );
           }}
