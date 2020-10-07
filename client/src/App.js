@@ -10,7 +10,6 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import CreateRoom from "./components/CreateRoom";
 import Room from "./components/Room";
-import { Button } from "react-bootstrap";
 import ProjectDetails from "./components/ProjectDetails";
 
 class App extends Component {
