@@ -10,6 +10,7 @@ export default class Comment extends Component {
     showButton: true,
     allowedToDelete: false,
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -17,12 +18,13 @@ export default class Comment extends Component {
         comment: this.state.comment,
         receiver: this.props.userId,
         receiverUsername: this.props.username,
-        senderUsername: this.props.loggedUser.username,
+        senderUsername: this.props.loggedUser.username
       })
       .then(() => {
         this.setState({
           comment: "",
         });
+
         this.props.getData();
       })
       .catch((error) => {
@@ -64,6 +66,7 @@ export default class Comment extends Component {
         console.log(error);
       });
   };
+
   handleButton = (event) => {
     if (event.target.className == "is-hidden") {
       event.target.className = "";
@@ -75,15 +78,11 @@ export default class Comment extends Component {
     let allowedToDelete = true;
     const userComment = this.props.comments.map((commentObj) => {
       console.log("commentObj in comment", commentObj);
+      console.log("this.props.loggedUser._id",this.props.loggedUser._id);
+      console.log("commentObj.sender",commentObj.sender)
       return (
         <div>
-          {commentObj.sender === this.props.loggedUser._id ? (
-            <p className="username-comment">You said: </p>
-          ) : (
-            <p className="username-comment">
-              {commentObj.receiverUsername} said:{" "}
-            </p>
-          )}
+          {commentObj.senderUsername === this.props.username ?  <p className="username-comment">{commentObj.receiverUsername} said: </p> : <p className="username-comment">{commentObj.senderUsername} said: </p>}
           {commentObj.comment}
           <Form>
             {allowedToDelete && (
@@ -97,21 +96,23 @@ export default class Comment extends Component {
               </Button>
             )}
           </Form>
+            {this.props.loggedUser._id !== commentObj.sender && 
           <Form onSubmit={this.handleRandomRoom}>
-            <Button onClick={this.handleButton} type="submit">
-              Accept invitation
-            </Button>{" "}
-            <br />
-          </Form>
+
+      <Button onClick={this.handleButton} type="submit">Accept invitation</Button> <br />
+            </Form>  
+            }
         </div>
       );
     });
+
     return (
       <>
         <h1>Comments:</h1>
         <div className="comments">{userComment}</div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
+
             <Form.Label htmlFor="comment">
               <b>Get in touch here! </b>
             </Form.Label>
@@ -123,7 +124,9 @@ export default class Comment extends Component {
               id="comment"
             />
           </Form.Group>
+
           <Button type="submit">Submit comment</Button> <br />
+
         </Form>
       </>
     );

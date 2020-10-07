@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 // import EditProject from "./EditProject";
 import Comment from "./Comment";
 import CreateRoom from "./CreateRoom";
+import { Route, Redirect, Link } from "react-router-dom";
 
 export default class ProjectDetails extends Component {
   state = {
@@ -104,7 +105,7 @@ export default class ProjectDetails extends Component {
     this.getData();
   }
   render() {
-    // console.log("project details",this.props);
+
     // if (this.state.error) return <div>{this.state.error}</div>;
     // if (!this.state.project) return <p>Loading ...</p>;
 
@@ -132,16 +133,7 @@ export default class ProjectDetails extends Component {
           loggedUser={this.props.user}
           {...this.state}
         />
-        <CreateRoom loggedUser={this.props.user} {...this.state} />
-        {/* <Button onClick={this.toggleEditForm}>Show Edit Form</Button>
-        {this.state.editForm && (
-          <EditProject
-            {...this.state}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-          
-        )} */}
+        {/* <Link to={`/room`}>Go to room</Link> */}
         <CreateRoom />
       </div>
     );
