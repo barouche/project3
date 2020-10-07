@@ -103,11 +103,12 @@ class App extends Component {
                   <p>
                     <em>We are DaNaKe, we are community</em>
                   </p>
-                  <a href="/signup">
+                  {/* <a href="/signup">
                     <Button variant="primary" size="lg">
                       Join us now
                     </Button>
-                  </a>
+                  </a> */}
+                  <Login setUser={this.setUser} {...props} />
                 </div>
               );
           }}
