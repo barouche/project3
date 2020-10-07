@@ -4,8 +4,6 @@ import { withRouter } from "react-router-dom";
 const CreateRoom = (props) => {
   const [roomNumber, setRoomNumber] = useState();
 
-  console.log("this is the state", roomNumber);
-
   function create() {
     const id = roomNumber;
 
