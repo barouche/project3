@@ -16,8 +16,8 @@ const passport = require("passport");
 require("./configs/passport.js");
 
 mongoose
-// .connect(process.env.MONGODB_URI || 'mongodb://localhost/barouche')
-  .connect("mongodb://localhost/projector", { useNewUrlParser: true })
+.connect(process.env.MONGODB_URI || 'mongodb://localhost/barouche')
+  // .connect("mongodb://localhost/projector", { useNewUrlParser: true })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
