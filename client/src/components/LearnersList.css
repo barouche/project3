@@ -77,3 +77,12 @@
 .language h6 {
   margin-top: 10px;
 }
+
+.search-field {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+  padding-bottom: 15px;
+}

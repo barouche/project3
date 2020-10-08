@@ -1,14 +1,46 @@
 .videoDisplay {
   display: flex;
-  flex-direction: row;
+  height: 50vh;
+  justify-content:space-between
 }
 
 .videoAndChat {
   display: flex;
   flex-direction: row;
   margin-left: 80px;
+  justify-content: space-between;
 }
 
 .chat {
   width: 31vw;
+  height: 50vh;
+}
+ .sc-bdnylx .zQHGU {
+  width: 100px;
+}
+/* .sc-gtssRu .kheAJp */
+.share-screen {
+  display: flex;
+  justify-content:space-around;
+  width: 35%;
+}
+.suggestions {
+  display: flex;
+  padding-left: 50px;
+  width: 65%;
+  justify-content:space-between;
+}
+.suggestions-button {
+  display: flex;
+  justify-content:space-between;
+  margin: 5px;
+}
+.topics {
+  border-radius: 25px;
+  background-color: #f1f3de;
+  display: flex;
+  align-items: center; 
+  justify-content:space-around; 
+padding: 5px 15px;
+width: 85%;
 }

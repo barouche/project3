@@ -82,9 +82,9 @@ export default class Projects extends Component {
       });
     return (
       <div>
-        <Form.Group>
+        <Form.Group className="search-field">
           <Form.Label htmlFor="search"> </Form.Label>
-          <Form.Control
+          <Form.Control 
             type="text"
             name="search"
             onChange={(e) => this.searchSpace(e)}

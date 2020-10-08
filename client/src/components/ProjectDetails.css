@@ -8,51 +8,71 @@
   font-size: 40px;
   color: #fff;
   text-align: center;
-  background: #eb8f8f;
-}
+  /* background: #eb8f8f; */
+
+ /* border-radius: 50px; */
+ background: linear-gradient(to right, #eb8f8f 50%, #cd0a0a 50%);
+ background-size: 200% 100%;
+ background-position: right bottom;
+ transition: all 2s ease;
+ }
+
+ .circle:hover {
+  background-position: left bottom;
+  } 
 
 .circle-container {
   display: flex;
   justify-content: center;
 }
 .details-container {
-  margin: 100px;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 10px;
   background-color: #f1f3de;
   padding: 50px;
   border-radius: 25px;
-  /* width: 85vw; */
+  width: 85vw;
   /* color: #eb8f8f; */
 }
 .languages-container {
   text-align: left;
   width: 35%;
   border-radius: 15px;
+  border: 1px dotted #eb8f8f;
+  padding: 10px;
 }
 .comment-submit {
   width: 100%;
-  display: inline-block;
+  display: flex;
   margin-right: 10px;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #eb8f8f;
   border: 2px solid #cd0a0a;
   padding: 10px;
-  border-radius: 25px;
+  border-radius:25px;
   line-height: 50px;
+  color: #ec0101;
 }
+.comment-form {
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .comments {
   text-align: left;
   color: black;
   overflow: scroll;
   height: 45vh;
-  border: 1px solid #eb8f8f;
+  /* border: 1px solid #eb8f8f; */
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
-  /* display: inline-block; */
+  display: flex;
+  flex-direction: column;
 }
 
 .enterRoom {
@@ -63,7 +83,9 @@
 
 .button-in-comment {
   display: flex;
-  padding: 3px;
+  flex-direction: row;
+  justify-content: end;
+  margin-left: 35vh;
 }
 /* f1f3de pale green?
 eb8f8f pale pink
@@ -72,4 +94,23 @@ cd0a0a  dark red
 */
 .disappear {
   display: none !important;
+}
+.comment-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comment-box .box {
+  transition: box-shadow 5.3s;
+  width: 300px;
+  height: 500px;
+  margin: 50px;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  
+}
+.box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
