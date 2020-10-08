@@ -1,6 +1,6 @@
 
 .circle {
-  margin:10px;
+  margin: 10px;
   width: 300px;
   height: 300px;
   line-height: 300px;
@@ -16,7 +16,7 @@
   justify-content: center;
 }
 .details-container {
-  margin:100px;
+  margin: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -24,26 +24,27 @@
   background-color: #f1f3de;
   padding: 50px;
   border-radius: 25px;
+  /* width: 85vw; */
   /* color: #eb8f8f; */
 }
 .languages-container {
   text-align: left;
   width: 35%;
-  border-radius:15px;
+  border-radius: 15px;
 }
 .comment-submit {
   width: 100%;
   display: inline-block;
-  margin-right:10px;
-  justify-content:space-around;
-  background-color:#eb8f8f;
+  margin-right: 10px;
+  justify-content: space-around;
+  background-color: #eb8f8f;
   border: 2px solid #cd0a0a;
   padding: 10px;
   border-radius: 25px;
   line-height: 50px;
 }
 .comments {
-  text-align:left;
+  text-align: left;
   color: black;
   overflow: scroll;
   height: 45vh;
@@ -52,9 +53,6 @@
   padding: 10px;
   margin-top: 10px;
   /* display: inline-block; */
-}
-p {
-  background-color: #f1f3de
 }
 
 .enterRoom {
@@ -72,7 +70,6 @@ eb8f8f pale pink
 ec0101 red
 cd0a0a  dark red
 */
-.disappear
-    {
-        display: none !important;
-    }
+.disappear {
+  display: none !important;
+}
