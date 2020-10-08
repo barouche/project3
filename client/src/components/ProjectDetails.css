@@ -9,19 +9,72 @@ h1 {
   font-size: 40px;
   color: #fff;
   text-align: center;
-  background: #000;
+  background: #eb8f8f;
 }
 
 .circle-container {
   display: flex;
   justify-content: center;
 }
-.languages-container {
+.details-container {
+  margin:100px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 10px;
+  background-color: #f1f3de;
+  padding: 50px;
+  border-radius: 25px;
+  /* color: #eb8f8f; */
 }
-.boxes {
-  width: 50%;
+.languages-container {
+  text-align: left;
+  width: 35%;
+  border-radius:15px;
 }
+.comment-submit {
+  width: 100%;
+  display: inline-block;
+  margin-right:10px;
+  justify-content:space-around;
+  background-color:#eb8f8f;
+  border: 2px solid #cd0a0a;
+  padding: 10px;
+  border-radius: 25px;
+  line-height: 50px;
+}
+.comments {
+  text-align:left;
+  color: black;
+  overflow: scroll;
+  height: 45vh;
+  border: 1px solid #eb8f8f;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  /* display: inline-block; */
+}
+p {
+  background-color: #f1f3de
+}
+
+.enterRoom {
+  background-color: #f1f3de;
+  color: #cd0a0a;
+  padding: 20px;
+}
+
+.button-in-comment {
+  display: flex;
+  padding: 3px;
+  /* float: right; */
+}
+/* f1f3de pale green?
+eb8f8f pale pink
+ec0101 red
+cd0a0a  dark red
+*/
+.disappear
+    {
+        display: none !important;
+    }

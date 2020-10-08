@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const CreateRoom = (props) => {
   const [roomNumber, setRoomNumber] = useState();
@@ -15,23 +17,21 @@ const CreateRoom = (props) => {
   }
 
   return (
-    <div className="button">
-      <label htmlFor="roomNumber">Please enter a room number</label>
-      <input
+    <div className=" enterRoom">
+      <label htmlFor="roomNumber">Please enter a room number: </label>
+      <TextField
         type="number"
         name="roomNumber"
         id="roomNumber"
         value={roomNumber}
         onChange={onEnteringChar}
-      ></input>
+      />
 
-      {roomNumber ? (
-        <button onClick={create} id="goRoom">
+      {roomNumber && (
+        <Button variant="outlined" color="primary" onClick={create} id="goRoom">
           Enter Room
-        </button>
-      ) : (
-        <h1> Add a room number </h1>
-      )}
+        </Button>
+      ) }
     </div>
   );
 };
