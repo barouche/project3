@@ -317,7 +317,7 @@ const Room = (props) => {
     let randomNumber = Math.floor(Math.random() * chats.length);
     setTopics(chats[randomNumber]);
   }
-  setTimeout(topicSuggestion, 120000);
+  setTimeout(topicSuggestion, 60000);
 
   return (
     <div>
