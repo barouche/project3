@@ -7,10 +7,8 @@ const favicon = require("serve-favicon");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
 const http = require("http");
-const server = require("http").createServer(app);
-const socket = require("socket.io").listen(server);
+const socket = require("socket.io");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -34,7 +32,7 @@ const MongoStore = require("connect-mongo")(session);
 const app = express();
 // var http = require("http").Server(app);
 // var io = require("socket.io")(http);
-
+const server = http.createServer(app);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
