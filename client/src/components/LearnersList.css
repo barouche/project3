@@ -1,3 +1,79 @@
 .UserInformation {
-  background-color: black;
+  /* background-color: black; */
+  border: 1px solid #e2e8ef;
+  box-shadow: 2px 1px 1px #ced4da;
+  border-radius: 0.25rem;
+  width: 23vw;
+  margin-bottom: 30px;
+  margin-right: 40px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.nameDisplay {
+  color: black;
+  font-weight: bold;
+  /* border: 1px solid rgba(215, 33, 12, 0.844); */
+  border-radius: 100%;
+  padding: 20px;
+  text-decoration: none;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.UserInformation:hover {
+  text-decoration: none;
+  /* border: 3px solid rgba(255, 0, 0, 0.201); */
+  box-shadow: 3px 1px 1px red;
+  background-color: rgba(211, 211, 211, 0.509);
+}
+
+.UserInformation a:hover {
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
+
+.UserInformation a {
+  font-size: 20px;
+}
+
+.UserInformation b {
+  margin-right: 40px;
+  margin-left: 40px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.languageDetails {
+  margin-top: 35px;
+  margin: 10px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.languageDetails p {
+  margin-left: 15px;
+}
+
+.language p {
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.language h6 {
+  margin-top: 10px;
 }

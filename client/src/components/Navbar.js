@@ -15,25 +15,29 @@ export default function Navbar(props) {
   return (
     <nav className="nav">
       <img src={Logo}></img>
-      {props.user && <div>Welcome {props.user.username}</div>}
+      {props.user && (
+        <div className="userWelcome">Welcome {props.user.username}</div>
+      )}
       {props.user ? (
         <>
-          <div>
-            <Link to="/home">Learners</Link>
-          </div>
-          <div>
-            <Link to="/" onClick={() => handleLogout(props)}>
-              Logout
-            </Link>
+          <div className="loggedinElements">
+            <div className="navElements">
+              <Link to="/home">Learners</Link>
+            </div>
+            <div className="navElements">
+              <Link to="/" onClick={() => handleLogout(props)}>
+                Logout
+              </Link>
+            </div>
           </div>
         </>
       ) : (
         <>
           <div className="LoginSignup">
-            <div>
+            <div className="navElements">
               <Link to="/signup">Signup</Link>
             </div>
-            <div>
+            <div className="navElements">
               <Link to="/login">Login</Link>
             </div>
           </div>

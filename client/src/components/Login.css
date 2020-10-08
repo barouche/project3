@@ -11,4 +11,13 @@
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-clip: padding-box;
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+}
+
+.loginCredentials {
+  margin: 10px 0;
+  padding: 0px;
+  display: flex;
 }

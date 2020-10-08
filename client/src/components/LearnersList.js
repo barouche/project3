@@ -59,16 +59,24 @@ export default class Projects extends Component {
       .map((user) => {
         return (
           <div className="UserInformation">
-            <a href={`/users/${user._id}`}>{user.username}</a> <br></br>
+            <a className="nameDisplay" href={`/users/${user._id}`}>
+              {user.username}
+            </a>{" "}
+            <br></br>
             <b>{user.description}</b>
-            <p>I speak </p>
-            {user.languagesSpoken.map((spokenLanguage) => {
-              return <p>{spokenLanguage}</p>;
-            })}
-            <p>and would love to learn </p>
-            {user.languagesToLearn.map((languagesToLearn) => {
-              return <p>{languagesToLearn}</p>;
-            })}
+            <div className="languageDetails">
+              {/* <b>Languages</b> */}
+              <div className="language">
+                <h6>SPEAKS</h6>
+                {user.languagesSpoken.map((spokenLanguage) => {
+                  return <p>{spokenLanguage}</p>;
+                })}
+                <h6>LEARNS</h6>
+                {user.languagesToLearn.map((languagesToLearn) => {
+                  return <p>{languagesToLearn}</p>;
+                })}
+              </div>
+            </div>
           </div>
         );
       });
@@ -84,7 +92,7 @@ export default class Projects extends Component {
             placeholder="Enter the language you want to learn or the user you want to talk to"
           />
         </Form.Group>
-        {users}
+        <div className="userContainer">{users}</div>
       </div>
     );
   }
