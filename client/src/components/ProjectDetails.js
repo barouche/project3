@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Button } from "react-bootstrap";
-// import EditProject from "./EditProject";
+// import Row from 'react-bootstrap/Row'
+// import Col from 'react-bootstrap/Col'
+// import Container from 'react-bootstrap/Container'
+import ListGroup from 'react-bootstrap/ListGroup'
 import Comment from "./Comment";
 import CreateRoom from "./CreateRoom";
 // import { Route, Redirect, Link } from "react-router-dom";
+import "./ProjectDetails.css";
 
 export default class ProjectDetails extends Component {
   state = {
@@ -118,27 +121,39 @@ export default class ProjectDetails extends Component {
     // const owner = this.state.project.owner;
     // if (user && user._id === owner) allowedToDelete = true;
     const languagesToLearn = this.state.languagesToLearn.map((language) => {
-      return <p>{language}</p>;
+      return <ListGroup.Item> {language}</ListGroup.Item>;
     });
     const languagesSpoken = this.state.languagesSpoken.map((language) => {
-      return <p>{language}</p>;
+      return <ListGroup.Item> {language}</ListGroup.Item>;
     });
     return (
       <div>
-        <h1>{this.state.username}</h1>
-        <p>{this.state.description}</p>
-        <h3>Wants to learn</h3>
-        {languagesToLearn}
-        <h3>Can speak</h3>
-        {languagesSpoken}
+      <div className="circle-container">
+        <h1 className="circle">{this.state.username}</h1>
+        </div>
 
+    <p>{this.state.description}</p>
+        
+        <div className="languages-container">
+          <div className="boxes">
+        <h3>Speaks</h3>
+        <ListGroup variant="flush">
+        {languagesSpoken}
+        </ListGroup>
+        <h3>Learns</h3>
+        <ListGroup variant="flush">
+        {languagesToLearn}
+        </ListGroup>
+        </div>
+        <div className="boxes">
         <Comment
           getData={this.getData}
           loggedUser={this.props.user}
           {...this.state}
-        />
-        {/* <Link to={`/room`}>Go to room</Link> */}
+          />
         <CreateRoom />
+        </div>
+        </div>
       </div>
     );
   }

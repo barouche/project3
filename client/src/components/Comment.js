@@ -117,11 +117,10 @@ export default class Comment extends Component {
 
     return (
       <>
-        <h1>Comments:</h1>
+      {/* <h4>Schedule a videocall here!</h4> */}
         <div className="comments">{userComment}</div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-
             <Form.Label htmlFor="comment">
               <b>Schedule a videocall here! </b>
             </Form.Label>
