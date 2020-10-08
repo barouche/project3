@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
+import "./LearnersList.css";
 
 // import LearnersList from "./LearnersList";
 // import AddProject from "./AddProject";
@@ -29,8 +30,7 @@ export default class Projects extends Component {
           learners: response.data,
         });
         this.state.learners.forEach((learner) => {
-          learner.languagesSpoken.forEach((language) => {
-          });
+          learner.languagesSpoken.forEach((language) => {});
         });
       })
       .catch((error) => {
@@ -39,7 +39,6 @@ export default class Projects extends Component {
   };
 
   render() {
-
     const users = this.state.learners
       .filter((data) => {
         if (this.state.search == null) return data;
@@ -59,17 +58,25 @@ export default class Projects extends Component {
       })
       .map((user) => {
         return (
-          <div>
-            <a href={`/users/${user._id}`}>{user.username}</a> <br></br>
+          <div className="UserInformation">
+            <a className="nameDisplay" href={`/users/${user._id}`}>
+              {user.username}
+            </a>{" "}
+            <br></br>
             <b>{user.description}</b>
-            <p>I speak </p>
-            {user.languagesSpoken.map((spokenLanguage) => {
-              return <p>{spokenLanguage}</p>;
-            })}
-            <p>and would love to learn </p>
-            {user.languagesToLearn.map((languagesToLearn) => {
-              return <p>{languagesToLearn}</p>;
-            })}
+            <div className="languageDetails">
+              {/* <b>Languages</b> */}
+              <div className="language">
+                <h6>SPEAKS</h6>
+                {user.languagesSpoken.map((spokenLanguage) => {
+                  return <p>{spokenLanguage}</p>;
+                })}
+                <h6>LEARNS</h6>
+                {user.languagesToLearn.map((languagesToLearn) => {
+                  return <p>{languagesToLearn}</p>;
+                })}
+              </div>
+            </div>
           </div>
         );
       });
@@ -85,7 +92,7 @@ export default class Projects extends Component {
             placeholder="Enter the language you want to learn or the user you want to talk to"
           />
         </Form.Group>
-        {users}
+        <div className="userContainer">{users}</div>
       </div>
     );
   }

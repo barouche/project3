@@ -99,16 +99,18 @@ class App extends Component {
                     from all over the world and learn the language of your
                     choosing, whilst simultaneously sharing your own culture.
                   </p>
-                  <p>
-                    <em>We are Barouche, we are community</em>
-                  </p>
+
+                  <em>We are Barouche, we are community</em>
+
                   {/* <a href="/signup">
                     <Button variant="primary" size="lg">
                       Join us now
                     </Button>
                   </a> */}
                   <Login setUser={this.setUser} {...props} />
-                  <Link to={`/signup`}>Sign Up here</Link>
+                  <Link to={`/signup`} className="signupLink">
+                    Sign Up here
+                  </Link>
                 </div>
               );
           }}
