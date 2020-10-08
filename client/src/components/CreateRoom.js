@@ -17,7 +17,7 @@ const CreateRoom = (props) => {
   }
 
   return (
-    <div className=" enterRoom">
+    <div className="enterRoom">
       <label htmlFor="roomNumber">Please enter a room number: </label>
       <TextField
         type="number"
@@ -28,9 +28,11 @@ const CreateRoom = (props) => {
       />
 
       {roomNumber && (
+        <div><br />
         <Button variant="outlined" color="primary" onClick={create} id="goRoom">
           Enter Room
         </Button>
+        </div>
       ) }
     </div>
   );

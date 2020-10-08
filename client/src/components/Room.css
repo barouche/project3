@@ -1,0 +1,14 @@
+.videoDisplay {
+  display: flex;
+  flex-direction: row;
+}
+
+.videoAndChat {
+  display: flex;
+  flex-direction: row;
+  margin-left: 80px;
+}
+
+.chat {
+  width: 31vw;
+}

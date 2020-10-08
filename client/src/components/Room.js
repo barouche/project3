@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import io from "socket.io-client";
 import styled from "styled-components";
+import "./Room.css";
 
 const Container = styled.div`
   height: 100vh;
@@ -21,7 +22,7 @@ const Messages = styled.div`
 
 const MessageBox = styled.textarea`
   width: 100%;
-  height: 30%;
+  height: 10%;
 `;
 
 const Button = styled.div`
@@ -321,37 +322,39 @@ const Room = (props) => {
 
   return (
     <div>
-      <div>
-        <video
-          // controls
-          style={{ height: 500, width: 500 }}
-          autoPlay
-          ref={userVideo}
-          muted="muted"
-        />
-        <video
-          controls
-          style={{ height: 500, width: 500 }}
-          autoPlay
-          ref={partnerVideo}
-        />
-        {screenShare ? (
-          <h2></h2>
-        ) : (
-          <button onClick={shareScreen}>Share screen</button>
-        )}
-      </div>
-      <div>
-        <Container>
-          <Messages>{messages.map(renderMessage)}</Messages>
-          <MessageBox
-            value={text}
-            onChange={handleChange}
-            placeholder="Happy Learning :)"
+      <div className="videoAndChat">
+        <div className="videoDisplay">
+          <video
+            // controls
+            style={{ height: 500, width: 400 }}
+            autoPlay
+            ref={userVideo}
+            muted="muted"
           />
+          <video
+            controls
+            style={{ height: 500, width: 400 }}
+            autoPlay
+            ref={partnerVideo}
+          />
+          {screenShare ? (
+            <h2></h2>
+          ) : (
+            <button onClick={shareScreen}>Share screen</button>
+          )}
+        </div>
+        <div className="chat">
+          <Container>
+            <Messages>{messages.map(renderMessage)}</Messages>
+            <MessageBox
+              value={text}
+              onChange={handleChange}
+              placeholder="Happy Learning :)"
+            />
 
-          <Button onClick={() => handleSendMessage()}>Send</Button>
-        </Container>
+            <Button onClick={() => handleSendMessage()}>Send</Button>
+          </Container>
+        </div>
       </div>
       <div>
         <Button onClick={() => topicSuggestion()}>
