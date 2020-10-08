@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
-// import Container from 'react-bootstrap/Container'
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Comment from "./Comment";
 import CreateRoom from "./CreateRoom";
@@ -120,11 +123,11 @@ export default class ProjectDetails extends Component {
     const user = this.props.user;
     // const owner = this.state.project.owner;
     // if (user && user._id === owner) allowedToDelete = true;
-    const languagesToLearn = this.state.languagesToLearn.map((language) => {
-      return <ListGroup.Item> {language}</ListGroup.Item>;
-    });
     const languagesSpoken = this.state.languagesSpoken.map((language) => {
-      return <ListGroup.Item> {language}</ListGroup.Item>;
+      return <div><ListItemText> {language} </ListItemText> <Divider  /></div>;
+    });
+    const languagesToLearn = this.state.languagesToLearn.map((language) => {
+      return <div><ListItemText> {language} </ListItemText> <Divider  /></div>;
     });
     return (
       <div>
@@ -132,20 +135,30 @@ export default class ProjectDetails extends Component {
         <h1 className="circle">{this.state.username}</h1>
         </div>
 
-    <p>{this.state.description}</p>
+    <h5>{this.state.description}</h5>
         
-        <div className="languages-container">
-          <div className="boxes">
+        <div className="details-container">
+          <div className="languages-container">
+          <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" >
+            
         <h3>Speaks</h3>
-        <ListGroup variant="flush">
+        <List>
         {languagesSpoken}
-        </ListGroup>
+        </List>
+        <br />
         <h3>Learns</h3>
-        <ListGroup variant="flush">
+        <List>
         {languagesToLearn}
-        </ListGroup>
+        </List>
+          </Typography>
+          <div >
+          </div>
+        </Grid>
+        </Grid>
         </div>
-        <div className="boxes">
+        <div className="comment-box">
         <Comment
           getData={this.getData}
           loggedUser={this.props.user}

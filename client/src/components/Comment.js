@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import axios from "axios";
 export default class Comment extends Component {
   state = {
@@ -72,11 +74,11 @@ export default class Comment extends Component {
 
   handleButton = (event) => {
     console.log(event.target.parentName);
-    if (event.target.className == "is-hidden") {
-      event.target.className = "";
-    } else {
-      event.target.className = "is-hidden";
-    }
+    // if (event.target.className == "disappear") {
+    //   event.target.className = "";
+    // } else {
+      event.target.className = "disappear";
+    // }
   };
   render() {
     let allowedToDelete = true;
@@ -88,19 +90,20 @@ export default class Comment extends Component {
       return (
         <div>
           {commentObj.senderUsername === this.props.username ? (
-            <p className="username-comment">
+            <h6 className="username-comment">
               {commentObj.receiverUsername} said:{" "}
-            </p>
+            </h6>
           ) : (
-            <p className="username-comment">
-              {commentObj.senderUsername} said:{" "}
-            </p>
+            <h6 className="username-comment">
+              <b>{commentObj.senderUsername}</b> said:{" "}
+            </h6>
           )}
           {commentObj.comment}
+          <div className="button-in-comment">
           <Form>
             {allowedToDelete && (
               <Button
-                variant="danger"
+              variant="contained" color="secondary"
                 onClick={() => {
                   this.decline(commentObj);
                 }}
@@ -109,15 +112,17 @@ export default class Comment extends Component {
               </Button>
             )}
           </Form>
-
+          </div>
           {this.props.loggedUser._id !== commentObj.sender &&
             !commentObj.roomGenerated && (
+              <div className="button-in-comment">
               <Form onSubmit={this.handleRandomRoom}>
-                <Button onClick={this.handleButton} type="submit">
+                <Button onClick={this.handleButton} variant="contained"color="primary" type="submit">
                   Accept invitation
-                </Button>{" "}
+                </Button>
                 <br />
               </Form>
+              </div>
             )}
         </div>
       );
@@ -125,23 +130,22 @@ export default class Comment extends Component {
 
     return (
       <>
-        <div className="comments">{userComment}</div>
+        <div className="comment-submit">
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
             <Form.Label htmlFor="comment">
-              {/* <b>Schedule a videocall here! </b> */}
             </Form.Label>
-            <Form.Control
+            <TextField id="standard-primary" label="Comment here" color="primary" 
               type="text"
               name="comment"
               value={this.state.comment}
               onChange={this.handleChange}
-              placeholder="Schedule a videocall here"
+              placeholder="Schedule a videocall"
               id="comment"
             />
-          </Form.Group>
-          <Button type="submit">Submit comment</Button> <br />
+          <Button variant="contained" style={{marginLeft:"20px"}} type="submit">Submit</Button> <br />
         </Form>
+        </div>
+        <div className="comments"><br/>{userComment}</div>
       </>
     );
   }
