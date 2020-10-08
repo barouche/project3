@@ -49,7 +49,7 @@ app.use(
   })
 );
 
-const io = socket(server);
+const io = socket.listen(server);
 app.use(passport.initialize());
 app.use(passport.session());
 
