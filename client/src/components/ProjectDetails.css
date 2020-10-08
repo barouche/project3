@@ -1,5 +1,4 @@
-h1 {
-}
+
 .circle {
   margin:10px;
   width: 300px;
@@ -67,7 +66,6 @@ p {
 .button-in-comment {
   display: flex;
   padding: 3px;
-  /* float: right; */
 }
 /* f1f3de pale green?
 eb8f8f pale pink

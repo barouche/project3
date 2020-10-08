@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { signup } from "../services/auth";
-
+import Button from '@material-ui/core/Button';
+import "./Signup.css";
 export default class Signup extends Component {
   state = {
     username: "",
@@ -91,8 +92,10 @@ export default class Signup extends Component {
   render() {
     return (
       <>
-        <h2>Signup</h2>
         <Form onSubmit={this.handleSubmit}>
+        <h2>Signup</h2>
+      <div className="signup-container">
+        <div className="form-container">
           <Form.Group>
             <Form.Label htmlFor="username">Username: </Form.Label>
             <Form.Control
@@ -113,6 +116,21 @@ export default class Signup extends Component {
               id="password"
             />
           </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="description">
+              Tell us a little bit about yourself:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+              id="description"
+            />
+          </Form.Group>
+          </div>
+          <div className="languages-box">
+            
           <Form.Group>
             <Form.Label>I speak the following languages:</Form.Label>
             <Form.Control
@@ -171,22 +189,13 @@ export default class Signup extends Component {
               <option value="🇵🇰 Urdu">🇵🇰 Urdu</option>
             </Form.Control>
           </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="description">
-              Tell us a little bit about yourself:
-            </Form.Label>
-            <Form.Control
-              type="text"
-              name="description"
-              value={this.state.description}
-              onChange={this.handleChange}
-              id="description"
-            />
-          </Form.Group>
+
           {this.state.message && (
             <Alert variant="danger">{this.state.message}</Alert>
           )}
-          <Button type="submit">Join our community</Button>
+          <Button variant="outlined" color="secondary" type="submit">Join our community</Button>
+        </div>
+        </div>
         </Form>
       </>
     );
