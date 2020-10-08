@@ -19,7 +19,7 @@ export default class Comment extends Component {
         receiver: this.props.userId,
         receiverUsername: this.props.username,
         senderUsername: this.props.loggedUser.username,
-        roomGenerated: this.state.roomGenerated
+        roomGenerated: this.state.roomGenerated,
       })
       .then(() => {
         this.setState({
@@ -40,7 +40,7 @@ export default class Comment extends Component {
   };
   handleRandomRoom = (event) => {
     const senderName = this.props.comments.slice(-1)[0].senderUsername;
-    console.log("sender",this.props.comments.slice(-1))
+    console.log("sender", this.props.comments.slice(-1));
     event.preventDefault();
     axios
       .post("/comments", {
@@ -49,10 +49,9 @@ export default class Comment extends Component {
         receiver: this.props.userId,
         receiverUsername: senderName,
         senderUsername: this.props.loggedUser.username,
-        roomGenerated: !this.state.roomGenerated
+        roomGenerated: !this.state.roomGenerated,
       })
       .then(() => {
-
         this.setState({
           comment: "",
         });
@@ -80,7 +79,6 @@ export default class Comment extends Component {
     }
   };
   render() {
-
     let allowedToDelete = true;
     const userComment = this.props.comments.map((commentObj) => {
       // console.log("this.props.loggedUser._id",this.props.loggedUser._id);
@@ -89,7 +87,15 @@ export default class Comment extends Component {
       // console.log("this.props.loggedUser.username", this.props.loggedUser.username);
       return (
         <div>
-          {commentObj.senderUsername === this.props.username ?  <p className="username-comment">{commentObj.receiverUsername} said: </p> : <p className="username-comment">{commentObj.senderUsername} said: </p>}
+          {commentObj.senderUsername === this.props.username ? (
+            <p className="username-comment">
+              {commentObj.receiverUsername} said:{" "}
+            </p>
+          ) : (
+            <p className="username-comment">
+              {commentObj.senderUsername} said:{" "}
+            </p>
+          )}
           {commentObj.comment}
           <Form>
             {allowedToDelete && (
@@ -104,38 +110,37 @@ export default class Comment extends Component {
             )}
           </Form>
 
-            {(this.props.loggedUser._id !== commentObj.sender &&
-            !commentObj.roomGenerated
-            ) && 
-          <Form onSubmit={this.handleRandomRoom}>
-      <Button onClick={this.handleButton} type="submit">Accept invitation</Button> <br />
-            </Form>  
-            }
+          {this.props.loggedUser._id !== commentObj.sender &&
+            !commentObj.roomGenerated && (
+              <Form onSubmit={this.handleRandomRoom}>
+                <Button onClick={this.handleButton} type="submit">
+                  Accept invitation
+                </Button>{" "}
+                <br />
+              </Form>
+            )}
         </div>
       );
     });
 
     return (
       <>
-        <h1>Comments:</h1>
         <div className="comments">{userComment}</div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-
             <Form.Label htmlFor="comment">
-              <b>Schedule a videocall here! </b>
+              {/* <b>Schedule a videocall here! </b> */}
             </Form.Label>
             <Form.Control
               type="text"
               name="comment"
               value={this.state.comment}
               onChange={this.handleChange}
+              placeholder="Schedule a videocall here"
               id="comment"
             />
           </Form.Group>
-
           <Button type="submit">Submit comment</Button> <br />
-
         </Form>
       </>
     );
