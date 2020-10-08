@@ -325,7 +325,7 @@ const Room = (props) => {
       <div className="videoAndChat">
         <div className="videoDisplay">
           <video
-            // controls
+            controls
             style={{ height: 500, width: 400 }}
             autoPlay
             ref={userVideo}
@@ -340,7 +340,9 @@ const Room = (props) => {
           {screenShare ? (
             <h2></h2>
           ) : (
+            <div>
             <button onClick={shareScreen}>Share screen</button>
+            </div>
           )}
         </div>
         <div className="chat">

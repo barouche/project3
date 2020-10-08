@@ -131,7 +131,7 @@ export default class Comment extends Component {
     return (
       <>
         <div className="comment-submit">
-        <Form onSubmit={this.handleSubmit}>
+        <Form className="comment-form" onSubmit={this.handleSubmit}>
             <Form.Label htmlFor="comment">
             </Form.Label>
             <TextField id="standard-primary" label="Comment here" color="primary" 
@@ -142,7 +142,7 @@ export default class Comment extends Component {
               placeholder="Schedule a videocall"
               id="comment"
             />
-          <Button variant="contained" style={{marginLeft:"20px"}} type="submit">Submit</Button> <br />
+          <Button variant="outlined" color="secondary"style={{marginLeft:"20px"}} type="submit">Submit</Button> <br />
         </Form>
         </div>
         <div className="comments"><br/>{userComment}</div>
