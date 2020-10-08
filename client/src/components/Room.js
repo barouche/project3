@@ -13,28 +13,35 @@ const Container = styled.div`
 `;
 
 const Messages = styled.div`
-  width: 100%;
-  height: 60%;
-  border: 1px solid black;
+width: 30vh;
+height: 35vh;
+  border: 1px dotted #ec0101;
   margin-top: 10px;
   overflow: scroll;
+  background-color: #f1f3de;
 `;
 
 const MessageBox = styled.textarea`
   width: 100%;
   height: 10%;
+  border: 1px dotted #ec0101;
+  margin-top: 15px;
+  background-color: #f1f3de;
 `;
 
 const Button = styled.div`
   width: 50%;
-  border: 1px solid black;
-  margin-top: 15px;
-  height: 5%;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  font-size: 18px;
+    border: 1px groove black;
+    margin-top: 15px;
+    height: 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #eb8f8f;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
 const MyRow = styled.div`
@@ -337,13 +344,6 @@ const Room = (props) => {
             autoPlay
             ref={partnerVideo}
           />
-          {screenShare ? (
-            <h2></h2>
-          ) : (
-            <div>
-            <button onClick={shareScreen}>Share screen</button>
-            </div>
-          )}
         </div>
         <div className="chat">
           <Container>
@@ -358,13 +358,22 @@ const Room = (props) => {
           </Container>
         </div>
       </div>
-      <div>
-        <Button onClick={() => topicSuggestion()}>
-          <p>Don't know what to talk about?</p>
-          <p>Here are our suggestions</p>
+      {screenShare ? (
+            <h2></h2>
+          ) : (
+            <div className="share-screen">
+            <Button onClick={shareScreen}>Share screen</Button>
+            </div>
+          )}
+      <div className="suggestions">
+        <Button className="suggestions-button" onClick={() => topicSuggestion()}>
+          <p>Don't know what to talk about?</p> 
+          <p>Click here for suggestions!</p>
         </Button>
+        <div className="topics">
+      {topics && <h2>{topics}</h2>}{" "}
       </div>
-      {topics && <h1>{topics}</h1>}{" "}
+      </div>
     </div>
   );
 };

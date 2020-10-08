@@ -22,11 +22,11 @@ export default function Navbar(props) {
         <>
           <div className="loggedinElements">
             <div className="navElements">
-              <Link to="/home">Learners</Link>
+              <Link to="/home">Learners  </Link>
             </div>
             <div className="navElements">
               <Link to="/" onClick={() => handleLogout(props)}>
-                Logout
+                  Logout
               </Link>
             </div>
           </div>

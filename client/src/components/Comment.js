@@ -142,7 +142,7 @@ export default class Comment extends Component {
               placeholder="Schedule a videocall"
               id="comment"
             />
-          <Button variant="outlined" color="secondary"style={{marginLeft:"20px"}} type="submit">Submit</Button> <br />
+          <Button variant="contained" color="secondary"style={{marginLeft:"20px"}} type="submit">Submit</Button> <br />
         </Form>
         </div>
         <div className="comments"><br/>{userComment}</div>
