@@ -16,7 +16,7 @@ const Messages = styled.div`
 width: 30vh;
 height: 35vh;
   border: 1px dotted #ec0101;
-  margin-top: 10px;
+  margin-top: 100px;
   overflow: scroll;
   background-color: #f1f3de;
 `;
