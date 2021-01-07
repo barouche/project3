@@ -13,8 +13,8 @@ const Container = styled.div`
 `;
 
 const Messages = styled.div`
-width: 30vh;
-height: 35vh;
+  width: 30vh;
+  height: 35vh;
   border: 1px dotted #ec0101;
   margin-top: 100px;
   overflow: scroll;
@@ -31,17 +31,17 @@ const MessageBox = styled.textarea`
 
 const Button = styled.div`
   width: 50%;
-    border: 1px groove black;
-    margin-top: 15px;
-    height: 5%;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #eb8f8f;
-    color: white;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  border: 1px groove black;
+  margin-top: 15px;
+  height: 5%;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #eb8f8f;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const MyRow = styled.div`
@@ -99,7 +99,7 @@ const Room = (props) => {
         userVideo.current.srcObject = stream;
         userStream.current = stream;
 
-        socketRef.current = io.connect("/");
+        socketRef.current = io.connect("https://barouche.herokuapp.com/");
         socketRef.current.emit("join room", props.match.params.roomID);
 
         socketRef.current.on("other user", (userID) => {
@@ -359,20 +359,21 @@ const Room = (props) => {
         </div>
       </div>
       {screenShare ? (
-            <h2></h2>
-          ) : (
-            <div className="share-screen">
-            <Button onClick={shareScreen}>Share screen</Button>
-            </div>
-          )}
+        <h2></h2>
+      ) : (
+        <div className="share-screen">
+          <Button onClick={shareScreen}>Share screen</Button>
+        </div>
+      )}
       <div className="suggestions">
-        <Button className="suggestions-button" onClick={() => topicSuggestion()}>
-          <p>Don't know what to talk about?</p> 
+        <Button
+          className="suggestions-button"
+          onClick={() => topicSuggestion()}
+        >
+          <p>Don't know what to talk about?</p>
           <p>Click here for suggestions!</p>
         </Button>
-        <div className="topics">
-      {topics && <h2>{topics}</h2>}{" "}
-      </div>
+        <div className="topics">{topics && <h2>{topics}</h2>} </div>
       </div>
     </div>
   );
