@@ -108,13 +108,12 @@ io.on("connection", (socket) => {
     io.to(incoming.target).emit("ice-candidate", incoming.candidate);
   });
 });
-if (process.env.PROD) {
-  app.use(express.static(path.join(__dirname, "./client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
-}
-
+// if (process.env.PROD) {
+//   app.use(express.static(path.join(__dirname, "./client/build")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
+//   });
+// }
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
@@ -131,7 +130,7 @@ const auth = require("./routes/auth");
 app.use("/api/auth", auth);
 // I am here for a test
 const port = process.env.PORT || 5000;
-server.listen(port, () => console.log("server is running on port, ", port));
+server.listen(port, () => console.log("server is running on port: ", port));
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.
