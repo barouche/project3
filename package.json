@@ -5,8 +5,7 @@
   "scripts": {
     "start": "PROD=true node ./bin/www",
     "dev": "DEBUG=projector:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www",
-    "postinstall": "cd ./client && yarn"
+    "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
