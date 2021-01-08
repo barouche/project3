@@ -108,12 +108,12 @@ io.on("connection", (socket) => {
     io.to(incoming.target).emit("ice-candidate", incoming.candidate);
   });
 });
-if (process.env.PROD) {
-  app.use(express.static(path.join(__dirname, "./client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/public/index.html"));
-  });
-}
+// if (process.env.PROD) {
+//   app.use(express.static(path.join(__dirname, "./client/build")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./client/build/public/index.html"));
+//   });
+// }
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 

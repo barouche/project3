@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PROD=true node ./bin/www",
+    "start": "node ./bin/www",
     "dev": "DEBUG=projector:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
