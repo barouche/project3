@@ -129,8 +129,8 @@ app.use("/api/projects", projects);
 const auth = require("./routes/auth");
 app.use("/api/auth", auth);
 // I am here for a test
-const port = process.env.PORT || 5000;
-server.listen(port, () => console.log("server is running on port: ", port));
+// const port = process.env.PORT || 5000;
+server.listen(5000, () => console.log("server is running on port: 5000"));
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.
