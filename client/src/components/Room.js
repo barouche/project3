@@ -149,7 +149,7 @@ const Room = (props) => {
         {
           urls: "turn:numb.viagenie.ca",
           credential: "ironhack-082020",
-          username: " idanpap@gmail.com",
+          username: "idanpap@gmail.com",
         },
       ],
     });
